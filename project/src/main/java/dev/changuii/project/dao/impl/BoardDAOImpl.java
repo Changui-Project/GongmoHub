@@ -2,9 +2,11 @@ package dev.changuii.project.dao.impl;
 
 import dev.changuii.project.dao.BoardDAO;
 import dev.changuii.project.entity.BoardEntity;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class BoardDAOImpl implements BoardDAO {
     @Override
     public BoardEntity createBoard(BoardEntity board) {

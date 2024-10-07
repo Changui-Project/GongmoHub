@@ -1,19 +1,54 @@
 package dev.changuii.project.dto;
 
+import dev.changuii.project.entity.MentorEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.ToString;
 
-import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @ToString
 @Builder
 @AllArgsConstructor
+@Getter
 public class MentorDto {
-    private Long boardId; // 게시판 번호
-    private String title; // 제목
-    private String content; // 내용
-    private LocalDate postDate; // 작성 날짜
-    private LocalDate closeDate; // 마감 날짜
+    private Long mentorId; // 멘토번호
+    private String Id; // 아이디
+    private String password; // 비밀번호
+    private String content; // 본인 설명
+    private String record; // 이력
     private String openTalkURL; // 오픈 채팅방 링크
+    private String imageURL; // 사진
+
+    public static MentorDto entityToDto(MentorEntity mentorEntity) {
+        return MentorDto.builder()
+                .mentorId(mentorEntity.getMentorId())
+                .Id(mentorEntity.getId()) // 멘토 아이디
+                .password(mentorEntity.getPassword()) // 비밀번호
+                .content(mentorEntity.getContent()) // 본인 설명
+                .record(mentorEntity.getRecord()) // 이력
+                .openTalkURL(mentorEntity.getOpenTalkURL()) // 오픈 채팅방 링크
+                .imageURL(mentorEntity.getImageURL()) // 사진 URL
+                .build();
+    }
+
+    public static List<MentorDto> entityToDtoList(List<MentorEntity> mentorEntities) {
+        return mentorEntities.stream()
+                .map(MentorDto::entityToDto)
+                .collect(Collectors.toList());
+    }
+
+    public static MentorEntity dtoToEntity(MentorDto mentorDto) {
+        return MentorEntity.builder()
+                .Id(mentorDto.getId()) // 멘토 아이디
+                .password(mentorDto.getPassword()) // 비밀번호
+                .content(mentorDto.getContent()) // 본인 설명
+                .record(mentorDto.getRecord()) // 이력
+                .openTalkURL(mentorDto.getOpenTalkURL()) // 오픈 채팅방 링크
+                .imageURL(mentorDto.getImageURL()) // 사진 URL
+                .build();
+    }
+
 }
