@@ -5,8 +5,8 @@ import dev.changuii.project.entity.ContestEntity;
 import java.util.List;
 
 public interface ContestDAO {
-    ContestEntity createContest(ContestEntity contest);
+    void createContest(ContestEntity contest);
     ContestEntity readContest(Long id);
-    List<ContestEntity> readAllContest();
+    List<ContestEntity> readAllContests();
     void deleteContest(Long id);
 }

@@ -31,7 +31,7 @@ public class ContestServiceImpl implements ContestService {
 
     @Override
     public List<ContestDto> readAllContests() {
-        List<ContestEntity> contestEntities = contestDAO.readAllContest();
+        List<ContestEntity> contestEntities = contestDAO.readAllContests();
         return ContestDto.entityToDtoList(contestEntities);
     }
 

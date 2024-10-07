@@ -5,7 +5,7 @@ import dev.changuii.project.entity.MentorEntity;
 import java.util.List;
 
 public interface MentorDAO {
-    MentorEntity createMentor(MentorEntity mentor);
+    void createMentor(MentorEntity mentor);
     MentorEntity readMentor(Long id);
     List<MentorEntity> readAllMentors();
     void deleteMentor(Long id);
