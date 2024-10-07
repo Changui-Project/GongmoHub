@@ -7,6 +7,6 @@ import java.util.List;
 public interface ContestDAO {
     ContestEntity createContest(ContestEntity contest);
     ContestEntity readContest(Long id);
-    List<ContestEntity> readContests();
+    List<ContestEntity> readAllContest();
     void deleteContest(Long id);
 }

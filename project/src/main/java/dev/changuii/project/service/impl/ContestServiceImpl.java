@@ -2,6 +2,7 @@ package dev.changuii.project.service.impl;
 
 import dev.changuii.project.dao.impl.ContestDAOImpl;
 import dev.changuii.project.dto.ContestDto;
+import dev.changuii.project.entity.ContestEntity;
 import dev.changuii.project.service.ContestService;
 import org.springframework.stereotype.Service;
 
@@ -14,23 +15,28 @@ public class ContestServiceImpl implements ContestService {
     public ContestServiceImpl(ContestDAOImpl contestDAO) {
         this.contestDAO = contestDAO;
     }
+
     @Override
     public ContestDto createContest(ContestDto contestDto) {
-        return null;
+        ContestEntity contestEntity = ContestDto.dtoToEntity(contestDto);
+        contestDAO.createContest(contestEntity);
+        return ContestDto.entityToDto(contestEntity);
     }
 
     @Override
-    public ContestDto readContest(Long id) {
-        return null;
+    public ContestDto readContest(Long contestId) {
+        ContestEntity contestEntity = contestDAO.readContest(contestId);
+        return ContestDto.entityToDto(contestEntity);
     }
 
     @Override
     public List<ContestDto> readAllContests() {
-        return List.of();
+        List<ContestEntity> contestEntities = contestDAO.readAllContest();
+        return ContestDto.entityToDtoList(contestEntities);
     }
 
     @Override
-    public void deleteContest(Long id) {
-
+    public void deleteContest(Long contestId) {
+        contestDAO.deleteContest(contestId);
     }
 }

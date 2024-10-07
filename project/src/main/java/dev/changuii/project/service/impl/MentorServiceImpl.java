@@ -15,23 +15,28 @@ public class MentorServiceImpl implements MentorService {
     public MentorServiceImpl(MentorDAOImpl mentorDAO) {
         this.mentorDAO = mentorDAO;
     }
+
     @Override
     public MentorDto createMentor(MentorDto mentorDto) {
         MentorEntity mentorEntity = MentorDto.dtoToEntity(mentorDto);
+        mentorDAO.createMentor(mentorEntity);
+        return MentorDto.entityToDto(mentorEntity);
     }
 
     @Override
     public MentorDto readMentor(Long id) {
-        return null;
+        MentorEntity mentorEntity = mentorDAO.readMentor(id);
+        return MentorDto.entityToDto(mentorEntity);
     }
 
     @Override
     public List<MentorDto> readAllMentors() {
-        return List.of();
+        List<MentorEntity> mentorEntities = mentorDAO.readAllMentors();
+        return MentorDto.entityToDtoList(mentorEntities);
     }
 
     @Override
     public void deleteMentor(Long id) {
-
+        mentorDAO.deleteMentor(id);
     }
 }

@@ -19,7 +19,7 @@ public class ContestDAOImpl implements ContestDAO {
     }
 
     @Override
-    public List<ContestEntity> readContests() {
+    public List<ContestEntity> readAllContest() {
         return List.of();
     }
 
