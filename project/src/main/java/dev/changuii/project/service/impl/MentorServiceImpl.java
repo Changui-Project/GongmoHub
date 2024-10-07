@@ -4,6 +4,7 @@ import dev.changuii.project.dao.impl.MentorDAOImpl;
 import dev.changuii.project.dto.MentorDto;
 import dev.changuii.project.entity.MentorEntity;
 import dev.changuii.project.service.MentorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 public class MentorServiceImpl implements MentorService {
 
     private final MentorDAOImpl mentorDAO;
-    public MentorServiceImpl(MentorDAOImpl mentorDAO) {
+    public MentorServiceImpl(@Autowired MentorDAOImpl mentorDAO) {
         this.mentorDAO = mentorDAO;
     }
 
