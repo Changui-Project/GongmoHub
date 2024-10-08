@@ -18,6 +18,7 @@ public class BoardDto {
     private Long boardId; // 게시판 번호
     private String title; // 제목
     private String content; // 내용
+    private List<String> techStack; // 기술 스택
     private LocalDate postDate; // 작성 날짜
     private LocalDate closeDate; // 마감 날짜
     private String openTalkURL; // 오픈 채팅방 링크
@@ -29,6 +30,7 @@ public class BoardDto {
                 .content(boardEntity.getContent())
                 .postDate(boardEntity.getPostDate())
                 .closeDate(boardEntity.getCloseDate())
+                .techStack(boardEntity.getTechStacks())
                 .openTalkURL(boardEntity.getOpenTalkURL())
                 .build();
     }
@@ -43,6 +45,7 @@ public class BoardDto {
                 .content(boardDto.getContent())
                 .postDate(boardDto.getPostDate())
                 .closeDate(boardDto.getCloseDate())
+                .techStacks(boardDto.getTechStack())
                 .openTalkURL(boardDto.getOpenTalkURL())
                 .build();
     }

@@ -22,7 +22,6 @@ public class ContestDto {
     private String contestURL; // 공모전 링크
     private LocalDate startDate; // 시작날짜
     private LocalDate endDate; // 종료날짜
-    private List<String> feature = new ArrayList<>(); // 특징
     private String imageURL; // 사진
 
     public static ContestDto entityToDto(ContestEntity contestEntity) {
@@ -33,7 +32,6 @@ public class ContestDto {
                 .contestURL(contestEntity.getContestURL())
                 .startDate(contestEntity.getStartDate())
                 .endDate(contestEntity.getEndDate())
-                .feature(contestEntity.getFeature())
                 .imageURL(contestEntity.getImageURL())
                 .build();
     }
@@ -51,7 +49,6 @@ public class ContestDto {
                 .contestURL(contestDto.getContestURL())
                 .startDate(contestDto.getStartDate())
                 .endDate(contestDto.getEndDate())
-                .feature(contestDto.getFeature())
                 .imageURL(contestDto.getImageURL())
                 .build();
     }

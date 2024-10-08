@@ -23,8 +23,5 @@ public class ContestEntity {
     private String contestURL; // 공모전 링크
     private LocalDate startDate; // 시작날짜
     private LocalDate endDate; // 종료날짜
-    @ElementCollection
-    @Column(name = "feature")
-    private List<String> feature = new ArrayList<>(); // 특징
     private String imageURL; // 사진
 }

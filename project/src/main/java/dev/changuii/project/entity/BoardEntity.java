@@ -1,12 +1,11 @@
 package dev.changuii.project.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "board")
 @NoArgsConstructor
@@ -24,4 +23,6 @@ public class BoardEntity {
     private LocalDate postDate; // 작성 날짜
     private LocalDate closeDate; // 마감 날짜
     private String openTalkURL; // 오픈 채팅방 링크
+    @ElementCollection
+    private List<String> techStacks = new ArrayList<>();
 }

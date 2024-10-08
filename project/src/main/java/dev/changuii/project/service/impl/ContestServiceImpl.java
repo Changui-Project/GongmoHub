@@ -7,6 +7,7 @@ import dev.changuii.project.enums.ErrorCode;
 import dev.changuii.project.exception.CustomException;
 import dev.changuii.project.repository.ContestRepository;
 import dev.changuii.project.service.ContestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +16,12 @@ import java.util.List;
 public class ContestServiceImpl implements ContestService {
 
     private final ContestRepository contestRepository;
-    public ContestServiceImpl(ContestRepository contestRepository) {
+    private final KomoranMorphologicalAnalysisService komoranMorphologicalAnalysisService;
+    public ContestServiceImpl(
+            @Autowired  ContestRepository contestRepository,
+            @Autowired KomoranMorphologicalAnalysisService komoranMorphologicalAnalysisService) {
         this.contestRepository = contestRepository;
+        this.komoranMorphologicalAnalysisService=komoranMorphologicalAnalysisService;
     }
 
     @Override
@@ -38,6 +43,13 @@ public class ContestServiceImpl implements ContestService {
     public List<ContestDto> readByTitleContest(String keyword) {
         return ContestDto.entityToDtoList(
                 this.contestRepository.findByTitleContaining(keyword));
+    }
+
+    @Override
+    public List<ContestDto> readByOrdinaryStringContest(String ordinary) {
+        return ContestDto.entityToDtoList(
+                this.contestRepository.findByKeywords(
+                this.komoranMorphologicalAnalysisService.extractNoun(ordinary)));
     }
 
     @Override

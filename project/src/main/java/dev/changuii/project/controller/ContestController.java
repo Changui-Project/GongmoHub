@@ -37,6 +37,14 @@ public class ContestController {
                 .body(this.contestService.readByTitleContest(keyword));
     }
 
+    @GetMapping("/ordinary/{ordinary}")
+    public ResponseEntity<List<ContestDto>> readAllByOrdinaryString(
+            @PathVariable("ordinary") String ordinary
+    ){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(this.contestService.readByOrdinaryStringContest(ordinary));
+    }
+
     @GetMapping("")
     public ResponseEntity<List<ContestDto>> readAllContests() {
         List<ContestDto> contests = contestService.readAllContests();
