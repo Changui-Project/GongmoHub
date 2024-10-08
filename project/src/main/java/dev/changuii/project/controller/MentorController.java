@@ -35,7 +35,7 @@ public class MentorController {
 
 
     @GetMapping("/{mentorId}")
-    public ResponseEntity<MentorDto> readMentor(@PathVariable Long mentorId){
+    public ResponseEntity<MentorDto> readMentor(@PathVariable("mentorId") Long mentorId){
         MentorDto readMentor = mentorService.readMentor(mentorId);
         return ResponseEntity.ok().body(readMentor);
     }
@@ -46,9 +46,14 @@ public class MentorController {
         return ResponseEntity.ok().body(mentors);
     }
 
-    @DeleteMapping("/{mentorId}")
-    public void deleteMentor(@PathVariable Long mentorId){
-        mentorService.deleteMentor(mentorId);
+    @DeleteMapping("")
+    public ResponseEntity<Boolean> deleteMentor(
+            @RequestParam("email") String email,
+            @RequestParam("password") String password
+    ){
+        this.mentorService.deleteByEmailAndPassword(email, password);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT)
+                .body(true);
     }
 
 

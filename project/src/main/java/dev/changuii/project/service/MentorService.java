@@ -12,4 +12,6 @@ public interface MentorService {
     MentorDto readMentor(Long id);
     List<MentorDto> readAllMentors();
     void deleteMentor(Long id);
+
+    void deleteByEmailAndPassword(String email, String password);
 }

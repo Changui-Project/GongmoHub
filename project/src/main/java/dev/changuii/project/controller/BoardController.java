@@ -23,7 +23,7 @@ public class BoardController {
     }
 
     @GetMapping("/{boardId}")
-    public ResponseEntity<BoardDto> readBoard(@PathVariable Long boardId) {
+    public ResponseEntity<BoardDto> readBoard(@PathVariable("boardId") Long boardId) {
         BoardDto readBoard = boardService.readBoard(boardId);
         return ResponseEntity.ok().body(readBoard);
     }

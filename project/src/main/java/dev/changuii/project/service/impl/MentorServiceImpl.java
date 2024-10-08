@@ -66,4 +66,15 @@ public class MentorServiceImpl implements MentorService {
     public void deleteMentor(Long id) {
         this.mentorRepository.deleteById(id);
     }
+
+    @Override
+    public void deleteByEmailAndPassword(String email, String password) {
+        MentorEntity m = this.mentorRepository.findByEmail(email)
+                .orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND));
+
+        if(m.getPassword().equals(password))
+            throw new CustomException(ErrorCode.INVALID_PASSWORD);
+
+        this.mentorRepository.deleteById(m.getMentorId());
+    }
 }

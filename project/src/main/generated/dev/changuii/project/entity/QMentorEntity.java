@@ -21,7 +21,7 @@ public class QMentorEntity extends EntityPathBase<MentorEntity> {
 
     public final StringPath content = createString("content");
 
-    public final StringPath Id = createString("Id");
+    public final StringPath email = createString("email");
 
     public final StringPath imageURL = createString("imageURL");
 

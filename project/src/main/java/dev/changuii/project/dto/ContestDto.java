@@ -1,10 +1,7 @@
 package dev.changuii.project.dto;
 
 import dev.changuii.project.entity.ContestEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,6 +10,7 @@ import java.util.stream.Collectors;
 
 @ToString
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 public class ContestDto {
@@ -23,6 +21,7 @@ public class ContestDto {
     private LocalDate startDate; // 시작날짜
     private LocalDate endDate; // 종료날짜
     private String imageURL; // 사진
+    private String type;
 
     public static ContestDto entityToDto(ContestEntity contestEntity) {
         return ContestDto.builder()
@@ -33,6 +32,7 @@ public class ContestDto {
                 .startDate(contestEntity.getStartDate())
                 .endDate(contestEntity.getEndDate())
                 .imageURL(contestEntity.getImageURL())
+                .type(contestEntity.getType())
                 .build();
     }
 
@@ -50,6 +50,7 @@ public class ContestDto {
                 .startDate(contestDto.getStartDate())
                 .endDate(contestDto.getEndDate())
                 .imageURL(contestDto.getImageURL())
+                .type(contestDto.type)
                 .build();
     }
 

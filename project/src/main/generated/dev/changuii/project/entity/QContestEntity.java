@@ -33,6 +33,8 @@ public class QContestEntity extends EntityPathBase<ContestEntity> {
 
     public final StringPath title = createString("title");
 
+    public final StringPath type = createString("type");
+
     public QContestEntity(String variable) {
         super(ContestEntity.class, forVariable(variable));
     }

@@ -24,4 +24,8 @@ public class ContestEntity {
     private LocalDate startDate; // 시작날짜
     private LocalDate endDate; // 종료날짜
     private String imageURL; // 사진
+
+    private String type;
+
+
 }

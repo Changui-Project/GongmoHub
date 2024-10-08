@@ -1,16 +1,14 @@
 package dev.changuii.project.dto;
 
 import dev.changuii.project.entity.MentorEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @ToString
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 public class MentorDto {
@@ -26,7 +24,7 @@ public class MentorDto {
     public static MentorDto entityToDto(MentorEntity mentorEntity) {
         return MentorDto.builder()
                 .mentorId(mentorEntity.getMentorId())
-                .Id(mentorEntity.getId()) // 멘토 아이디
+                .Id(mentorEntity.getEmail()) // 멘토 아이디
                 .password(mentorEntity.getPassword()) // 비밀번호
                 .name(mentorEntity.getName())
                 .content(mentorEntity.getContent()) // 본인 설명
@@ -44,7 +42,7 @@ public class MentorDto {
 
     public static MentorEntity dtoToEntity(MentorDto mentorDto) {
         return MentorEntity.builder()
-                .Id(mentorDto.getId()) // 멘토 아이디
+                .email(mentorDto.getId()) // 멘토 아이디
                 .password(mentorDto.getPassword()) // 비밀번호
                 .name(mentorDto.getName())
                 .content(mentorDto.getContent()) // 본인 설명

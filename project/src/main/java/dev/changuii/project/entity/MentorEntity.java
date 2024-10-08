@@ -17,7 +17,7 @@ public class MentorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mentorId; // 멘토번호
-    private String Id; // 아이디
+    private String email; // 아이디
     private String password; // 비밀번호
     private String name; // 이름
     private String content; // 본인 설명
