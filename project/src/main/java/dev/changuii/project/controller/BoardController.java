@@ -16,25 +16,25 @@ public class BoardController {
         this.boardService = boardServiceImpl;
     }
 
-    @PostMapping("/create")
+    @PostMapping("")
     public ResponseEntity<BoardDto> createBoard(@RequestBody BoardDto boardDto) {
         BoardDto createdBoard = boardService.createBoard(boardDto);
         return ResponseEntity.ok().body(createdBoard);
     }
 
-    @GetMapping("/read/{boardId}")
+    @GetMapping("/{boardId}")
     public ResponseEntity<BoardDto> readBoard(@PathVariable Long boardId) {
         BoardDto readBoard = boardService.readBoard(boardId);
         return ResponseEntity.ok().body(readBoard);
     }
 
-    @GetMapping("/readAll")
+    @GetMapping("")
     public ResponseEntity<List<BoardDto>> readAllBoards() {
         List<BoardDto> boards = boardService.readAllBoards();
         return ResponseEntity.ok().body(boards);
     }
 
-    @DeleteMapping("/delete/{boardId}")
+    @DeleteMapping("/{boardId}")
     public void deleteBoard(@PathVariable Long boardId) {
         boardService.deleteBoard(boardId);
     }

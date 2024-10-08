@@ -1,7 +1,6 @@
 package dev.changuii.project.repository.impl;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import dev.changuii.project.entity.SampleEntity;
 import dev.changuii.project.repository.CustomSampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 

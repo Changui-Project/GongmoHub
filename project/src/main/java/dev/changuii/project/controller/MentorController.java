@@ -1,8 +1,10 @@
 package dev.changuii.project.controller;
 
 import dev.changuii.project.dto.MentorDto;
+import dev.changuii.project.dto.TokenDto;
 import dev.changuii.project.service.impl.MentorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,21 +25,33 @@ public class MentorController {
         return ResponseEntity.ok().body(createMentor);
     }
 
-    @GetMapping("/read/{mentorId}")
+    @PostMapping("/signin")
+    public ResponseEntity<TokenDto> signinMentor(
+            @RequestBody MentorDto mentorDto
+    ){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(this.mentorService.signinMentor(mentorDto));
+    }
+
+
+    @GetMapping("/{mentorId}")
     public ResponseEntity<MentorDto> readMentor(@PathVariable Long mentorId){
         MentorDto readMentor = mentorService.readMentor(mentorId);
         return ResponseEntity.ok().body(readMentor);
     }
 
-    @GetMapping("/readAll")
+    @GetMapping("")
     public ResponseEntity<List<MentorDto>> readAllMentors(){
         List<MentorDto> mentors = mentorService.readAllMentors();
         return ResponseEntity.ok().body(mentors);
     }
 
-    @DeleteMapping("/delete/{mentorId}")
+    @DeleteMapping("/{mentorId}")
     public void deleteMentor(@PathVariable Long mentorId){
         mentorService.deleteMentor(mentorId);
     }
+
+
+
 
 }

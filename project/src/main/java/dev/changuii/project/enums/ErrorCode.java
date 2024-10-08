@@ -8,6 +8,7 @@ public enum ErrorCode {
     USER_NOT_FOUND("존재하지 않는 사용자"),
     DESIGNATION_NOT_OWN("소유하지 않은 칭호"),
     DESIGNATION_DUPLICATION("이미 존재하는 칭호"),
+    INVALID_PASSWORD("잘못된 비밀번호"),
 
 
     // S3
@@ -17,19 +18,15 @@ public enum ErrorCode {
     NON_DELETE_IMAGE_EXCEPTION("삭제할 수 없는 이미지"),
 
 
-    // wanted
-    WANTED_ALREADY_PROGRESS("이미 wanted가 진행중입니다."),
-    WANTED_NOT_FOUND("존재하지 않는 Wanted입니다."),
+    // Contest
+    CONTEST_NOT_FOUND("존재하지 않는 Contest입니다."),
 
-    // report
-    REPORT_NOT_FOUND("존재하지 않는 report입니다."),
 
     // idempotent
     DUPLICATION_REQUEST("중복된 요청입니다."),
 
-
-    //friendship
-    REQUEST_NOT_FOUND("존재하지 않는 요청입니다."),
+    // Board
+    BOARD_NOT_FOUND("존재하지 않는 게시물입니다."),
 
 
     //TOKEN
