@@ -17,7 +17,7 @@ public class MentorController {
         this.mentorService = mentorServiceImpl;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/signup")
     public ResponseEntity<MentorDto> createMentor(@RequestBody MentorDto mentorDto){
         MentorDto createMentor = mentorService.createMentor(mentorDto);
         return ResponseEntity.ok().body(createMentor);
