@@ -19,6 +19,7 @@ public class ContestDto {
     private Long contestId; // 공모전 번호
     private String title; // 제목
     private String content; // 내용
+    private String contestURL; // 공모전 링크
     private LocalDate startDate; // 시작날짜
     private LocalDate endDate; // 종료날짜
     private List<String> feature = new ArrayList<>(); // 특징
@@ -29,6 +30,7 @@ public class ContestDto {
                 .contestId(contestEntity.getContestId())
                 .title(contestEntity.getTitle())
                 .content(contestEntity.getContent())
+                .contestURL(contestEntity.getContestURL())
                 .startDate(contestEntity.getStartDate())
                 .endDate(contestEntity.getEndDate())
                 .feature(contestEntity.getFeature())
@@ -46,6 +48,7 @@ public class ContestDto {
         return ContestEntity.builder()
                 .title(contestDto.getTitle())
                 .content(contestDto.getContent())
+                .contestURL(contestDto.getContestURL())
                 .startDate(contestDto.getStartDate())
                 .endDate(contestDto.getEndDate())
                 .feature(contestDto.getFeature())

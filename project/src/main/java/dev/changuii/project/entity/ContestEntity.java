@@ -20,6 +20,7 @@ public class ContestEntity {
     private Long contestId; // 공모전 번호
     private String title; // 제목
     private String content; // 내용
+    private String contestURL; // 공모전 링크
     private LocalDate startDate; // 시작날짜
     private LocalDate endDate; // 종료날짜
     @ElementCollection
